@@ -41,8 +41,6 @@ def run(playwright: Playwright, stu_id, password) -> None:
     page.click("text=提交")
     # Click text=确定
     page.click("text=确定")
-    # Click text=确定
-    page.click("text=确定")
     # ---------------------
     context.close()
     browser.close()

@@ -21,10 +21,22 @@ def run(playwright: Playwright, stu_id, password) -> None:
     page.click("text=下一步")
     page.click("label:has-text(\"健康\")")
     # Click #radio_sfycxxwc42
-    page.click("#radio_sfycxxwc42")
+    page.click("#radio_xrywz34")
     # Click text=*行程码是否绿码： 是否 >> ins
     page.click("#radio_xcm5")
-    page.click("text=在上海")
+
+    for i in range(16,19):
+        with page.expect_file_chooser() as fc_info:
+            page.locator('#btn_upload' + str(i)).click()
+        file_chooser = fc_info.value
+        file_chooser.set_files(os.path.abspath(os.path.dirname(__file__)) + os.sep + 'dead.png')
+
+    # 体温是否正常
+    page.click("#radio_twsfzc9")
+    # <label for="sui-select-jkmsflm12" id="radio_jkmsflm13" class>…</label>
+    page.click("#radio_jkmsflm13")
+    # <label for="sui-select-sfycxxwc41" id="radio_sfycxxwc42" class>…</label>
+    page.click("#radio_sfycxxwc44")
     # Click text=提交
     page.click("text=提交")
     # Click text=确定

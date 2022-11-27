@@ -31,6 +31,8 @@ def run(playwright: Playwright, stu_id, password) -> None:
         file_chooser = fc_info.value
         file_chooser.set_files(os.path.abspath(os.path.dirname(__file__)) + os.sep + 'dead.png')
 
+    print(os.path.abspath(os.path.dirname(__file__)) + os.sep + 'dead.png') # test
+
     # 体温是否正常
     page.click("#radio_twsfzc9")
     # <label for="sui-select-jkmsflm12" id="radio_jkmsflm13" class>…</label>

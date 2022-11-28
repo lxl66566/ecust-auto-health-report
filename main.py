@@ -29,9 +29,9 @@ def run(playwright: Playwright, stu_id, password) -> None:
         with page.expect_file_chooser() as fc_info:
             page.locator('#btn_upload' + str(i)).click()
         file_chooser = fc_info.value
-        file_chooser.set_files(os.path.abspath(os.path.dirname(__file__)) + os.sep + 'dead.png')
+        file_chooser.set_files('dead.png')
 
-    print(os.path.abspath(os.path.dirname(__file__)) + os.sep + 'dead.png') # test
+    # print(os.path.abspath(os.path.dirname(__file__)) + os.sep + 'dead.png') # test
 
     # 体温是否正常
     page.click("#radio_twsfzc9")
@@ -43,6 +43,8 @@ def run(playwright: Playwright, stu_id, password) -> None:
     page.click("text=提交")
     # Click text=确定
     page.click("text=确定")
+    
+    print("uploaded successfully")
     # ---------------------
     context.close()
     browser.close()

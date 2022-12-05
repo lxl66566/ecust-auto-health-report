@@ -1,6 +1,6 @@
 name: AutoSignIn
 on:
-  push:
+  workflow_dispatch:
   schedule:
     - cron: '5 16 * * *'
 jobs:
